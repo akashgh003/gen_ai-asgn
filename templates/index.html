@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI Product Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta name="description" content="AI-powered product recommendations">
+</head>
+<body class="light-theme">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>GenAI Product Recommender</h1>
+                </div>
+                <div class="theme-toggle">
+                    <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                        <span class="toggle-icon light">☀️</span>
+                        <span class="toggle-icon dark">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro-section">
+            <h2>Find the Perfect Product with AI</h2>
+            <p>Ask questions in natural language and get personalized product recommendations.</p>
+        </section>
+
+        <section class="search-section">
+            <h2>Natural Language Search</h2>
+            <form id="search-form" class="query-form">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="query-input" 
+                        placeholder="What are you looking for? (e.g., 'I need a laptop with good battery life for college')"
+                        aria-label="Search query"
+                    >
+                    <button type="submit" class="submit-btn">Search</button>
+                </div>
+            </form>
+            <div id="results-container" class="results-container"></div>
+        </section>
+
+        <section id="followup-section" class="followup-section hidden">
+            <h3>Have a follow-up question?</h3>
+            <form id="followup-form" class="query-form">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="followup-input" 
+                        placeholder="Ask a follow-up question (e.g., 'Which one has the best battery life?')"
+                        aria-label="Follow-up question"
+                    >
+                    <button type="submit" class="submit-btn">Ask</button>
+                </div>
+            </form>
+            <div id="followup-response" class="followup-response"></div>
+        </section>
+
+        <section class="search-section">
+            <h2>API Search</h2>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="text-search-input" 
+                    placeholder="Search for products (e.g., laptop with good battery life)"
+                    aria-label="API search query"
+                >
+                <button id="text-search-button" class="search-button">Search</button>
+            </div>
+            <div id="search-results" class="results-container">
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-cards">
+                <div class="info-card" id="model-info-card">
+                    <h3>Model Information</h3>
+                    <div class="model-status">
+                        <div class="loading-spinner"></div>
+                        <p>Loading model information...</p>
+                    </div>
+                </div>
+                <div class="info-card" id="technical-info-card">
+                    <h3>Technical Details</h3>
+                    <div class="tech-info">
+                        <div class="loading-spinner"></div>
+                        <p>Loading technical information...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Product Recommender by Akash Ghosh</p>
+        </div>
+    </footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-content-container"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
